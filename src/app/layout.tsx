@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${pretendard.variable}`}>
-      <body className={`${pretendard.variable} antialiased`}>{children}</body>
+      <body className={`font-pretendard antialiased`}>{children}</body>
     </html>
   );
 }
