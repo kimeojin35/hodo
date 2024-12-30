@@ -6,3 +6,5 @@ export * from "./Moon";
 export * from "./Sun";
 export * from "./User";
 export * from "./Note_Search";
+export * from "./Arrow";
+export * from "./Close";
