@@ -9,7 +9,7 @@ export default {
   darkMode: "class",
   theme: {
     colors: {
-      transperent: "rgba(0, 0, 0, 0)",
+      transparent: "rgba(0, 0, 0, 0)",
       white: "#FFFFFF",
       black: "#000000",
       gray: {
@@ -35,6 +35,18 @@ export default {
         700: "#7A9900",
         800: "#576600",
         900: "#333300", // 어두운 노랑+연두
+      },
+      red: {
+        50: "#FEF2F2",
+        100: "#FEE2E2",
+        200: "#FECACA",
+        300: "#FCA5A5",
+        400: "#F87171",
+        500: "#EF4444",
+        600: "#DC2626",
+        700: "#B91C1C",
+        800: "#991B1B",
+        900: "#7F1D1D",
       },
     },
     fontFamily: {
@@ -105,6 +117,13 @@ export default {
           lineHeight: "34px",
         },
       ],
+      regular24: [
+        "24px",
+        {
+          fontWeight: 400,
+          lineHeight: "28px",
+        },
+      ],
       medium24: [
         "24px",
         {
@@ -119,6 +138,7 @@ export default {
           lineHeight: "28px",
         },
       ],
+
       medium20: [
         "20px",
         {
@@ -133,13 +153,7 @@ export default {
           lineHeight: "24px",
         },
       ],
-      light18: [
-        "18px",
-        {
-          fontWeight: 300,
-          lineHeight: "24px",
-        },
-      ],
+
       medium18: [
         "18px",
         {
@@ -197,9 +211,13 @@ export default {
         "50%": { transform: "translateY(-16px)" },
         "90%": { transform: "translateY(4px)" },
       },
+      spin: {
+        to: { transform: "rotate(360deg)" },
+      },
     },
     animation: {
       bouncing: "bouncing 0.3s ease-in-out",
+      spin: "spin 1s linear infinite",
     },
     boxShadow: {
       large: "0 30px 60px 5px rgba(0, 0, 0, 0.12)",

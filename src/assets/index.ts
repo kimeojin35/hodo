@@ -20,3 +20,6 @@ export * from "./Bookmark";
 export * from "./Plus";
 export * from "./List";
 export * from "./Grid";
+export * from "./Folder_Illust";
+export * from "./Lock";
+export * from "./Unlock";

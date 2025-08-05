@@ -1,6 +1,7 @@
 "use client";
 import { Bell, Folder, House, Moon, Note_Search, Sun, User } from "@/assets";
 import { useDarkMode } from "@/hook";
+import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
 export const Nav = () => {
@@ -11,11 +12,11 @@ export const Nav = () => {
   const [dark, toggleDarkMode] = useDarkMode();
 
   const tabs = [
-    { name: "Main", icon: <House />, route: "/" },
-    { name: "Search", icon: <Note_Search />, route: "/" },
-    { name: "Roadmap", icon: <Folder />, route: "/" },
-    { name: "Notice", icon: <Bell />, route: "/" },
-    { name: "Mypage", icon: <User />, route: "/" },
+    { name: "Main", icon: <House />, route: "/main" },
+    { name: "Search", icon: <Note_Search />, route: "/search" },
+    { name: "Roadmap", icon: <Folder />, route: "/roadmap" },
+    { name: "Notice", icon: <Bell />, route: "/notice" },
+    { name: "Mypage", icon: <User />, route: "/mypage" },
     { name: "Stroke", icon: <></>, route: "" },
     { name: "Theme", icon: dark ? <Moon /> : <Sun />, route: "" }, // route는 비워둠
   ];
@@ -84,7 +85,7 @@ export const Nav = () => {
     <div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="fixed flex items-end transition-all transform -translate-x-1/2 bg-white border border-gray-100 rounded-full shadow-large bottom-5 left-1/2 h-14"
+      className="fixed flex z-10 items-end transition-all transform -translate-x-1/2 bg-white border border-gray-100 rounded-full shadow-large bottom-5 left-1/2 h-14"
     >
       <div className="flex items-end gap-2 p-2">
         {tabs.map(({ name, icon, route }, i) => (
@@ -94,21 +95,23 @@ export const Nav = () => {
                 <div className="w-[1px] h-10 bg-gradient-to-t to-white via-gray-300 from-white" />
               </div>
             ) : (
-              <div
-                onClick={() => {
-                  if (name === "Theme") toggleDarkMode();
-                  clickAnimation(i);
-                }}
-                ref={(e) => submitDiv(e, i)}
-                className={`transition-all w-10 h-10 group text-gray-400 relative flex justify-center items-center duration-75 translate-y-0 bg-gray-100 rounded-full cursor-pointer ${
-                  clickedIndex === i ? "animate-bouncing" : "translate-y-0"
-                }`}
-              >
-                <div className="absolute flex items-center h-6 px-2 text-white transition-all translate-y-0 bg-black bg-opacity-50 rounded-md opacity-0 text-medium12 -top-5 group-hover:opacity-100 group-hover:-translate-y-3">
-                  {name}
+              <Link href={route}>
+                <div
+                  onClick={() => {
+                    if (name === "Theme") toggleDarkMode();
+                    clickAnimation(i);
+                  }}
+                  ref={(e) => submitDiv(e, i)}
+                  className={`transition-all w-10 h-10 group text-gray-400 relative flex justify-center items-center duration-75 translate-y-0 bg-gray-100 rounded-full cursor-pointer ${
+                    clickedIndex === i ? "animate-bouncing" : "translate-y-0"
+                  }`}
+                >
+                  <div className="absolute flex items-center h-6 px-2 text-white transition-all translate-y-0 bg-black bg-opacity-50 rounded-md opacity-0 text-medium12 -top-5 group-hover:opacity-100 group-hover:-translate-y-3">
+                    {name}
+                  </div>
+                  {icon}
                 </div>
-                {icon}
-              </div>
+              </Link>
             )}
           </React.Fragment>
         ))}
